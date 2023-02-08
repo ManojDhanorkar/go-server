@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"server/models"
+	"github.com/ManojDhanorkar/go-server/models"
 	"github.com/go-playground/validator/v10"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/bson/primitive"
