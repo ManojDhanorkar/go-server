@@ -1,11 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/ManojDhanorkar/go-server/routes"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-    "github.com/gin-contrib/cors"
 )
 
 func main() {
@@ -13,6 +14,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
+		fmt.Println("PORT is not defined. Setting it to 8000")
 		port = "8000"
 	}
 
