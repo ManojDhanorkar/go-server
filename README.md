@@ -6,6 +6,7 @@ Taken from https://github.com/nlatham1999/GoApp
 ### export env variables  e.g. 
 
 export PORT=5000
+
 export MONGODB_URL=mongodb+srv://user:password@host/?retryWrites=true&w=majority
 
 ### build binary
