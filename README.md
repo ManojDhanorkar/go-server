@@ -2,13 +2,31 @@
 
 Taken from https://github.com/nlatham1999/GoApp
 
-## command to post data: 
-#curl -X POST http://localhost:5000/order/create -H "Content-Type: application/json" -d '{"dish":"paratha","price":100, "server":"name","table":"1"}'
 
-## setup env file 
+### export env variables  e.g. 
 
-rename .env-sample to .env and update values 
+export PORT=5000
+export MONGODB_URL=mongodb+srv://user:password@host/?retryWrites=true&w=majority
 
-## build binary
+### build binary
 
-go build -o goserver
+go build -o order-service
+
+
+### run binary
+
+./order-service
+
+
+### command to fetch data
+
+curl http://localhost:5000/orders
+
+### command to post data
+
+curl -X POST http://localhost:5000/order/create -H "Content-Type: application/json" -d '{"dish":"paratha","price":100, "server":"name","table":"1"}'
+
+
+### build docker image 
+
+docker build -t order-service:v1.0 . 

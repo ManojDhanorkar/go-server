@@ -9,7 +9,8 @@ LABEL name="go-server" \
     summary="This service exposes rest API." \
     description="This service exposes rest API."
 
-# copy binary.
-COPY goserver goserver
+# copy binary. Make sure to build binary first with "go build -o order-service"
 
-CMD ["sh", "-c", "./goserver "]
+COPY order-service order-service
+
+CMD ["sh", "-c", "./order-service "]
