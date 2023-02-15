@@ -2,3 +2,4 @@
 main
 goserver
 order-service
+k8/order-service-secrets2.yaml

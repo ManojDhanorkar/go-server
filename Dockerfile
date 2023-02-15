@@ -10,6 +10,9 @@ LABEL name="go-server" \
     description="This service exposes rest API."
 
 # copy binary. Make sure to build binary first with "go build -o order-service"
+ENV PORT 5000
+
+ENV MONGODB_URL  "dummy-url"
 
 COPY order-service order-service
 

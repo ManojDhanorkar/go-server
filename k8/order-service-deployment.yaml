@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-deployment
+  labels:
+    app: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: quay.io/manoj_dhanorkar/order-service:v1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: order-service-secrets
+                  key: port
+            - name: MONGODB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: order-service-secrets
+                  key: mongodb_url
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: order-service
