@@ -13,4 +13,6 @@ LABEL name="go-server" \
 
 COPY order-service order-service
 
+EXPOSE 5000
+
 CMD ["sh", "-c", "./order-service "]
